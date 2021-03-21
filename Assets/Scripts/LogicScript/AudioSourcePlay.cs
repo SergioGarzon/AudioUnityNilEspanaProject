@@ -11,10 +11,12 @@ public class AudioSourcePlay : MonoBehaviour
     void Awake()
     {
         valueAux = 100f;
-        audios.Play();
+        PlayAudioSource();
     }
 
-    private void Update()
+
+
+    public void UpdateAudio()
     {
         value = PlayerPrefs.GetFloat("VolumeAudio", 0f);
 
@@ -24,5 +26,13 @@ public class AudioSourcePlay : MonoBehaviour
             valueAux = value;
         }
     }
+
+    private void PlayAudioSource()
+    {
+        UpdateAudio();
+        audios.Play();
+    }
+
+    
 
 }
